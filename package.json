@@ -1,0 +1,26 @@
+{
+  "name": "vd",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon src/index.js"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SangamSilwal/VideoTube.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SangamSilwal/VideoTube/issues"
+  },
+  "homepage": "https://github.com/SangamSilwal/VideoTube#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
