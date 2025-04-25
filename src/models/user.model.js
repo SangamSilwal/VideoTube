@@ -77,7 +77,7 @@ userSchema.methods.generateAccessToken = async function()
         }
     )
 }
-userSchema.methods.generateAccessToken = async function()
+userSchema.methods.generateRefreshToken = async function()
 {
     jwt.sign(
         {
