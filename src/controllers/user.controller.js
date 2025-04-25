@@ -7,8 +7,8 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 const generateAccessAndRefreshTokens = async(userId) => {
     try {
         const user = await User.findById(userId)
-        const accessToken = user.generateAccessToken()
-        const refreshToken = user.generateRefreshToken()
+        const accessToken = await user.generateAccessToken()
+        const refreshToken = await user.generateRefreshToken()
         user.refreshToken = refreshToken
         await user.save({validateBeforeSave: false})
 /*
@@ -131,7 +131,7 @@ const loginUser = asyncHandler(async (req,res)=>{
     }
 
     const {accessToken,refreshToken} = await generateAccessAndRefreshTokens(user._id)
-    
+    console.log("Tokens Are: ",accessToken,"----",refreshToken)
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
 
     const options = {
@@ -165,7 +165,7 @@ const logoutUser = asyncHandler (async (req,res) => {
             new: true
         }
     )
-    options= {
+    let options= {
         httpOnly: true,
         secure: true
     }
